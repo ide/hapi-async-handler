@@ -9,6 +9,7 @@ exports.register = function(server, options, next) {
       asyncHandler(request, reply).catch(function(error) {
         var {name, message, stack} = error;
         request.log(['error', 'uncaught'], {name, message, stack});
+        reply(error instanceof Error ? error : new Error(error));
       });
     };
   });
