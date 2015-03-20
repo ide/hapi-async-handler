@@ -7,8 +7,14 @@ exports.register = function(server, options, next) {
 
     return function(request, reply) {
       asyncHandler(request, reply).catch(function(error) {
-        var {name, message, stack} = error;
-        request.log(['error', 'uncaught'], {name, message, stack});
+        if (error instanceof Error) {
+          var {name, message, stack} = error;
+          request.log(['error', 'uncaught'], {name, message, stack});
+        } else {
+          request.log(['error', 'uncaught'], {name: 'Error', message: error});
+          error = new Error(error);
+        }
+        reply(error);
       });
     };
   });
