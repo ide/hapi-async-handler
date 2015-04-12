@@ -1,5 +1,5 @@
-var Code = require('Code');
-var Hapi = require('Hapi');
+var Code = require('code');
+var Hapi = require('hapi');
 
 var co = require('co');
 
