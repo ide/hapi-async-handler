@@ -8,3 +8,8 @@ node_js:
 env:
   - NODE_ENV=development
   - NODE_ENV=production
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
