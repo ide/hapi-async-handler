@@ -1,4 +1,4 @@
-# hapi-async-handler
+# hapi-async-handler [![Build Status](https://travis-ci.org/ide/hapi-async-handler.svg?branch=master)](https://travis-ci.org/ide/hapi-async-handler)
 Adds support for ES7 async functions to [hapi](http://hapijs.com/) route handlers
 
 [![npm package](https://nodei.co/npm/hapi-async-handler.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hapi-async-handler/)
