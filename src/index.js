@@ -24,5 +24,5 @@ exports.register = function(server, options, next) {
 
 exports.register.attributes = {
   name: 'hapi-async-handler',
-  version: '1.0.0',
+  version: '1.0.2',
 };
