@@ -38,7 +38,7 @@ server.route({
 });
 ```
 
-For the `async` keyword to work, you will need to transform your source code with [regenerator](https://facebook.github.io/regenerator/) or a similar compiler.
+For the `async` keyword to work, you will need to transform your source code with [Babel](https://babeljs.io/docs/usage/experimental/), [regenerator](https://facebook.github.io/regenerator/), or a similar compiler.
 
 ### Using co
 
