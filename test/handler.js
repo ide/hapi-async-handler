@@ -1,21 +1,21 @@
-var Code = require('code');
-var Hapi = require('hapi');
+let Code = require('code');
+let Hapi = require('hapi');
 
-var co = require('co');
+let co = require('co');
 
-var expect = Code.expect;
+let expect = Code.expect;
 
 describe('hapi-async-handler', function() {
 
   it('supports async functions', function(done) {
-    var server = new Hapi.Server();
+    let server = new Hapi.Server();
     server.connection();
 
     server.register(require('..'), function(error) {
       expect(error).not.to.exist();
 
       registerDefaultAsyncHandler(server, async function(request, reply) {
-        var output = await Promise.resolve('hello world');
+        let output = await Promise.resolve('hello world');
         reply(output);
       });
 
@@ -27,14 +27,14 @@ describe('hapi-async-handler', function() {
   });
 
   it('supports co-wrapped generator functions', function(done) {
-    var server = new Hapi.Server();
+    let server = new Hapi.Server();
     server.connection();
 
     server.register(require('..'), function(error) {
       expect(error).not.to.exist();
 
       registerDefaultAsyncHandler(server, co.wrap(function*(request, reply) {
-        var output = yield Promise.resolve('hello world');
+        let output = yield Promise.resolve('hello world');
         reply(output);
       }));
 
@@ -46,10 +46,10 @@ describe('hapi-async-handler', function() {
   });
 
   it('logs unhandled errors', function(done) {
-    var server = new Hapi.Server();
+    let server = new Hapi.Server();
     server.connection();
 
-    var requestError;
+    let requestError;
     server.on('request', function(request, event, tagMap) {
       requestError = event.data;
       expect(requestError.message).to.equal('intentional error');
@@ -71,8 +71,8 @@ describe('hapi-async-handler', function() {
   });
 
   it('sets `this` to the bound context', function(done) {
-    var context = {};
-    var server = new Hapi.Server();
+    let context = {};
+    let server = new Hapi.Server();
     server.connection();
     server.bind(context);
 
