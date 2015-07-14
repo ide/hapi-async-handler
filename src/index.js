@@ -6,7 +6,7 @@ exports.register = function(server, options, next) {
     assert.equal('function', typeof asyncHandler, 'The async route handler must be a function');
 
     return function(request, reply) {
-      asyncHandler(request, reply).catch(function(error) {
+      asyncHandler.bind(this)(request, reply).catch(function(error) {
         if (error instanceof Error) {
           var {name, message, stack} = error;
           request.log(['error', 'uncaught'], {name, message, stack});
