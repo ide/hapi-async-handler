@@ -29,12 +29,12 @@
   },
   "homepage": "https://github.com/ide/hapi-async-handler",
   "devDependencies": {
-    "babel": "^5.0.12",
-    "babel-runtime": "^5.0.12",
-    "co": "^4.5.1",
-    "code": "^1.4.0",
-    "hapi": "^8.4.0",
-    "lodash-node": "^3.6.0",
-    "mocha": "^2.2.4"
+    "babel": "^5.6.14",
+    "babel-runtime": "^5.6.20",
+    "co": "^4.6.0",
+    "code": "^1.4.1",
+    "hapi": "^8.8.0",
+    "lodash-node": "^3.10.0",
+    "mocha": "^2.2.5"
   }
 }
