@@ -1,6 +1,6 @@
 {
   "name": "hapi-async-handler",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Adds support for ES7 async functions to hapi route handlers",
   "files": [
     "build"

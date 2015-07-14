@@ -6,7 +6,7 @@ exports.register = function(server, options, next) {
     assert.equal('function', typeof asyncHandler, 'The async route handler must be a function');
 
     return function(request, reply) {
-      asyncHandler.bind(this)(request, reply).catch(function(error) {
+      asyncHandler.call(this, request, reply).catch(function(error) {
         if (error instanceof Error) {
           var {name, message, stack} = error;
           request.log(['error', 'uncaught'], {name, message, stack});
@@ -24,5 +24,5 @@ exports.register = function(server, options, next) {
 
 exports.register.attributes = {
   name: 'hapi-async-handler',
-  version: '1.0.2',
+  version: '1.0.3',
 };
