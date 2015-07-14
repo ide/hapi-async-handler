@@ -70,6 +70,27 @@ describe('hapi-async-handler', function() {
     });
   });
 
+  it('sets `this` to the bound context', function(done) {
+    var context = {};
+    var server = new Hapi.Server();
+    server.connection();
+    server.bind(context);
+
+    server.register(require('..'), function(error) {
+      expect(error).not.to.exist();
+
+      registerDefaultAsyncHandler(server, async function(request, reply) {
+        expect(this).to.equal(context);
+        reply('ok');
+      });
+
+      server.inject('/', function(response) {
+        expect(response.result.error).not.to.exist();
+        done();
+      });
+    });
+  });
+
   function registerDefaultAsyncHandler(server, handler) {
     server.route({
       method: 'GET',
