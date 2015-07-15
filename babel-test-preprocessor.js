@@ -1,4 +1,3 @@
-var _ = require('lodash-node');
 var registerBabel = require('babel/register');
 
 registerBabel({
